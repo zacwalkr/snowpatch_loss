@@ -65,6 +65,14 @@ ord.cov <- metaMDS(scover, distance = "bray", k=3,
 ord.pa #stress = 0.18
 ord.cov #stress = 0.16
 
+## produce shepard plots to check fit of ordination
+stressplot(ord.pa) #non-metric fit R2 = 0.965; linear fit R2 = 0.741
+title(main = "Shepard plot of presence-absence NMDS")
+stressplot(ord.cov) #non-metric fit R2 = 0.974; linear fit R2 = 0.809
+title(main = "Shepard plot of cover NMDS")
+
+
+
 #PRESENCE ABSENCE
 #extract NMDS scores (x and y coordinates) and add columns to data frame 
 data.scores.pa = as.data.frame(scores(ord.pa$points))
