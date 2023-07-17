@@ -139,3 +139,22 @@ gg_beta
 ggsave("beta.png", plot = gg_beta, width = 92, units = "mm", bg = "white")
 
 
+#### Spatial Autocorrelation ------------------------------------
+library(ade4)
+#read in file of coordinates
+coords <- read.csv("data/coords.csv")
+
+#filter community dataset (from earlier in this file) to be only 2022 dataset
+zzzy <- zzz %>% filter(!grepl("old", site))
+
+#create distance matrix for community data and for coordinate data
+comm <- dist(zzzy[2:73])
+diff <- dist(coords[2:3])
+
+#run mantel test
+man <- mantel.rtest(comm, diff, nrepet = 9999)
+
+#check file
+man 
+
+#No autocorrelation: Simulated p-value: 0.2504
