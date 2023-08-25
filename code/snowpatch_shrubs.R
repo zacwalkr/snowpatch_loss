@@ -123,7 +123,7 @@ i <- ggplot(Melicytus, aes(x = wdt_1)) +
   theme(plot.title = element_text(face = "italic"))
 
 #out all 8 plots into one figure
-shrub1 <- ggarrange(a,b,i,fb,ff,fp,g,h, ncol = 2, nrow = 4)
+shrub1 <- ggarrange(a,b,i,fb,ff,fp,g,h, ncol = 3, nrow = 3)
 
 ggsave("shrub1.png", plot = shrub1, width = 170, height = 220, units = "mm", bg = "white")
 
@@ -321,22 +321,22 @@ bins_long$year[bins_long$year == "90"] <- "1990"
 
 #plot regression lines (sorting facet_wrap from most negative slope to most positive)
 condit <- ggplot(bins_long, aes(x = di, y = number, group = year))+
-  facet_wrap(~factor(species, levels=c('Olearia_brevipedunculata',
-                                       'Olearia_frostii',
-                                       'Pimelea_axiflora',
-                                       'Acrothamnus_montanus',
+  facet_wrap(~factor(species, levels=c('Acrothamnus_montanus',
+                                       'Asterolasia_trymalioides',
                                        'Melicytus_dentatus',
-                                       'Phebalium_squamulosum',
+                                       'Olearia_brevipedunculata',
+                                       'Olearia_frostii',
                                        'Olearia_phlogopappa',
-                                       'Asterolasia_trymalioides'),
-                            labels = c('Olearia brevipedunculata',
-                                       'Olearia frostii',
-                                       'Pimelea axiflora',
-                                       'Acrothamnus montanus',
-                                       'Melicytus dentatus',
-                                       'Phebalium squamulosum',
-                                       'Olearia phlogopappa',
-                                       'Asterolasia trymalioides')))+
+                                       'Phebalium_squamulosum',
+                                       'Pimelea_axiflora'),
+                     labels = c('Acrothamnus montanus',
+                                'Asterolasia trymalioides',
+                                'Melicytus angustifolius',
+                                'Olearia brevipedunculata',
+                                'Olearia frostii',
+                                'Olearia phlogopappa',
+                                'Phebalium squamulosum',
+                                'Pimelea axiflora')))+
   ylim(-.5,3.5)+
   geom_point(aes(colour = year))+
   geom_smooth(method = lm, se =F, aes(colour = year))+ 
