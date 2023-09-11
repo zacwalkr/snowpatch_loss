@@ -13,5 +13,5 @@ There are seven csv data files and four R scripts.
 The 'snowpatch_diversity.R' code is used for the diversity analyses assessing differences between 1982 snowpatch floristics and 2022 low shrub cover plots and 2022 high shrub cover plots. This includes calculating and plotting hill numbers (q = 0,1,2) and measures of beta-diversity. This code uses snowpatch_df.csv and coord.csv.
 The 'snowpatch_floristics.R' code is used for producing the NMDS ordination. This code uses snowp_floristics.csv and snowp_additional.csv.
 The 'snowapatch_functrait.R' code is used for the functional trait analyses, which includes producing functional trait diversity metrics. The community weighted means of each trait are also calculated for 1982, 2022 low shrub cover and 2022 high shrub cover plots. This code uses snowp_floristics.csv, snowp_additional.csv, snowp_traits.csv.
-The 'snowpatch_shrubs.R' code is used to create size-class distribution histograms of main shrub species and produce condit curves. This code uses snowpatch_shrubdata.csv and snowpatch_condit.csv.
+The 'snowpatch_shrubs.R' code is used to create size-class distribution histograms of main shrub species. This code uses snowpatch_shrubdata.csv.
 
